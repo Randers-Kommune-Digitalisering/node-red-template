@@ -1,0 +1,9 @@
+{
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/KvalitetsIT/node-red-template.git"
+    },
+    "scripts": {
+        "start": "node $NODE_OPTIONS node_modules/node-red/red.js $FLOWS"
+    }
+}
