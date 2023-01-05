@@ -4,24 +4,23 @@ module.exports = {
         strategy: {
             name: "keycloak",
             label: 'Sign in',
-            icon:"fa-sign-in",
-            strategy: require("passport-openidconnect").Strategy,
+            icon:"fa-lock",
+            strategy: require("passport-keycloak-oauth2-oidc").Strategy,
             options: {
-                issuer: 'https://' + process.env['AUTH0_DOMAIN'] + '/',
-                authorizationURL: 'https://' + process.env['AUTH0_DOMAIN'] + '/authorize',
-                tokenURL: 'https://' + process.env['AUTH0_DOMAIN'] + '/oauth/token',
-                userInfoURL: 'https://' + process.env['AUTH0_DOMAIN'] + '/userinfo',
-                clientID: process.env['AUTH0_CLIENT_ID'],
-                clientSecret: process.env['AUTH0_CLIENT_SECRET'],
-                callbackURL: '/oauth2/redirect',
-                scope: [ 'profile' ],
-                verify: function(issuer, profile, cb) {
-                    return cb(null, profile);
+                clientID: process.env['OAUTH2_CLIENT_ID'],
+                realm: process.env['OAUTH2_REALM'],
+                publicClient: "false",
+                clientSecret: process.env['OAUTH2_CLIENT_SECRET'],
+                sslRequired: "external",
+                authServerURL: "https://" + process.env['OAUTH2_DOMAIN'] +"/auth",
+                callbackURL: "https://" + process.env['OAUTH2_CALLBACK_DOMAIN'] + "auth/strategy/callback",
+                verify: function(accessToken, refreshToken, profile, done) {
+                    done(null, profile);
                 }
             },
         },
         users: [
-           { username: "knolleary",permissions: ["*"]}
+           { username: "mmb@kvalitetsit.dk",permissions: ["*"]}
         ]
     }
 }
