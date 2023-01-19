@@ -36,7 +36,7 @@ jobs:
         with:
           registry: ghcr.io/${{ github.repository_owner }}
           username: ${{ github.actor }}
-          password: ${{ secrets.push_key }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
 # if below step is skipped this build is a tag build. Can be used for skipping other steps.
       - name: Is Tag Build
