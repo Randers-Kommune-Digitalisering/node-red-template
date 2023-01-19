@@ -29,6 +29,10 @@ jobs:
           echo "org: ${{ github.event.org.login }}"
           echo "URL: ${{ github.event.repository.url }}"
 
+      - name: Print
+        run: env | sort
+
+
 # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
