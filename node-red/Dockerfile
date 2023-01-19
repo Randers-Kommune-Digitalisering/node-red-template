@@ -1,7 +1,5 @@
 FROM nodered/node-red
 
-LABEL org.opencontainers.image.source https://github.com/KvalitetsIT/node-red-template
-
 # Copy package.json to the WORKDIR so npm builds all
 # of your added nodes modules for Node-RED
 COPY package.json .
