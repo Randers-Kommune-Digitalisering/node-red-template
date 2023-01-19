@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "DOCKER_SERVICE=kvalitetsit/node-red-template" >> $GITHUB_ENV
           echo "repo: ${{ github.event.repository.name }}"
-          echo "org: ${{ github.event.org.login }}"
+          echo "org: ${{ github.event.org.id }}"
           echo "URL: ${{ github.event.repository.url }}"
 
 # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
