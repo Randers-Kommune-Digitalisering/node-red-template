@@ -24,17 +24,19 @@ jobs:
 # Set docker image names.
       - name: Setup env variables
         run: |
-          echo "DOCKER_SERVICE=kvalitetsit/node-red-template" >> $GITHUB_ENV
+          echo "DOCKER_SERVICE=ghcr.io/${{ github.repository }}" >> $GITHUB_ENV
 
 # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-# Login to docker hub using secrets in GitHub.
-      - name: Login to docker
-        uses: docker/login-action@v1
+# Login against a Docker registry except on PR
+# https://github.com/docker/login-action
+      - name: Log into registry ghcr.io
+        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
         with:
-          username: ${{ secrets.DOCKER_HUB_USER }}
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          registry: ghcr.io/${{ github.repository_owner }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.push_key }}
 
 # if below step is skipped this build is a tag build. Can be used for skipping other steps.
       - name: Is Tag Build
@@ -43,8 +45,8 @@ jobs:
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}        
 
 # Build
-      - name: Build and test
-        run: ./build/build.sh ${{ env.DOCKER_SERVICE }}
+      - name: Build
+        run: ./build/build.sh ${{ env.DOCKER_SERVICE }} ${{ github.event.repository.url }}
 
 # Push to Github
       - name: Tag service git id docker image
