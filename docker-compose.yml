@@ -2,6 +2,8 @@ version: "3.9"
 services:
   node-red:
     build: node-red
+    networks:
+      - node_red
     ports:
       - "1880:1880"
     environment:
@@ -26,3 +28,9 @@ services:
       interval: 5s
       timeout: 5s
       retries: 55
+    networks:
+      - node_red
+      
+networks: 
+  node_red:
+    name: node_red
