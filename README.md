@@ -1,3 +1,8 @@
+# Brug af node-red-template
+Du gør følgende
+1. Klik "use this template -> create a new repository"
+2. Udfyld skærmbillede med information om den nye service
+
 # Node-RED template-projekt
 Template til nye Node-RED projekter.
 Projekt indeholder en tom Node-RED og paletterne
