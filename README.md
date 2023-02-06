@@ -57,18 +57,18 @@ Input til metrikken kommer fra en function-node der beskriver metrikken.
 ![metrik.png](images/metrik.png)
 
 ### Anbefalede minium metrikker
-For at servicen automatisk bliver tilføjet til Grafana dashboardet Service, skal følgende metrikker som minium være udstillede.   
+For at servicen automatisk bliver tilføjet til Grafana dashboardet *Service*, skal følgende metrikker som minium være udstillede.   
 
-- Up *- Indeholder værdien 1 når node-red servicen køre*
+- Up *- Indeholder værdien 1 når node-red servicen kører*
 - StatusCode *- Indeholder seneste HTTP status kode fra det kalde API*
 - Time *- Indeholder tidspunket for seneste kørsel*
 
-Et eksemple på hvordan metrikkerne kan opsættes. 
+Følgende er et eksempel på hvordan metrikkerne kan opsættes. 
 
 ![metrik-flow](images/metrik-flow.png)
 
 **Up**  
-Funktion der føre over til promethues out node
+Funktionen føres over til *prometheus out* node
 ```
 msg.payload =
 {
@@ -83,7 +83,7 @@ return msg;
 ![metrik-up.png](images/metrik-up.png)
 
 **StatusCode**   
-Funktion der føre over til promethues out node   
+Funktionen føres over til *prometheus out* node   
 ```
 var statusCode = msg.statusCode;
 msg.payload =
@@ -96,7 +96,7 @@ return msg;
 ![metrik-statuscode](images/metrik-statuscode.png)
 
 **Time**   
-Funktion der føre over til promethues out node   
+Funktionen føres over til *prometheus out* node   
 ```
 var time = new Date();
 msg.payload =
