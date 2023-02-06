@@ -52,7 +52,7 @@ Input til metrikken kommer fra en function-node der beskriver metrikken.
 ![metrik.png](images/metrik.png)
 
 ### Anbefalede minimums metrikker
-For at servicen automatisk bliver tilføjet til Grafana dashboardet *Service*, skal følgende metrikker som minium være udstillede.   
+For at servicen automatisk bliver tilføjet til Grafana dashboardet [*Service*](https://grafana.t0.hosting.kitkube.dk/d/ZxQiUL0Vz/service?orgId=125), skal følgende metrikker som minium være udstillede.   
 
 - Up *- Indeholder værdien 1 når node-red servicen kører*
 - StatusCode *- Indeholder seneste HTTP status kode fra API-kald*
