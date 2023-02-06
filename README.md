@@ -56,6 +56,58 @@ Input til metrikken kommer fra en function-node der beskriver metrikken.
 <br>
 ![metrik.png](images/metrik.png)
 
+### Anbefalede minium metrikker
+For at servicen automatisk bliver tilføjet til Grafana dashboardet Service, skal følgende metrikker som minium være udstillede.   
+
+- Up *- Indeholder værdien 1 når node-red servicen køre*
+- StatusCode *- Indeholder seneste HTTP status kode fra det kalde API*
+- Time *- Indeholder tidspunket for seneste kørsel*
+
+Et eksemple på hvordan metrikkerne kan opsættes. 
+
+![metrik-flow](images/metrik-flow.png)
+
+**Up**  
+Funktion der føre over til promethues out node
+```
+msg.payload =
+{
+    "op": "set",
+    "val": 1,
+    "labels": {
+        "name": env.get('POD_NAME')
+    }
+}
+return msg;
+```
+![metrik-up.png](images/metrik-up.png)
+
+**StatusCode**   
+Funktion der føre over til promethues out node   
+```
+var statusCode = msg.statusCode;
+msg.payload =
+{
+    "op": "set",
+    "val": statusCode,
+}
+return msg;
+```
+![metrik-statuscode](images/metrik-statuscode.png)
+
+**Time**   
+Funktion der føre over til promethues out node   
+```
+var time = new Date();
+msg.payload =
+{
+    "op": "set",
+    "val": time,
+}
+return msg;
+```
+![metrik-time](images/metrik-time.png)
+
 
 ## Udgivelse af version
 Ved push til Github, bliver der bygget et docker image. Hvis bygget går godt bliver docker imaget pushet til [GitHub packages](https://github.com/orgs/Randers-Kommune-Digitalisering/packages) med version tag svarede til commit id'et. 
