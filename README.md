@@ -1,18 +1,13 @@
-# Brug af node-red-template
-Du gør følgende
-1. Klik "use this template -> create a new repository"
-2. Udfyld skærmbillede med information om den nye service
-
 # Node-RED template-projekt
 Template til nye Node-RED projekter.
 Projekt indeholder en tom Node-RED og paletterne
 * node-red-contrib-mysql-config
 * node-red-contrib-prometheus-exporter
 
-## Opdatering af version og/eller standard palette
-Paletter kan tilføjes/fjernes eller opdateres under 'dependencies' i filen [node-red/package.json](node-red/package.json).
-<br>
-Node-RED er selv en dependency til Node JS projektet og opdateres derfor på samme måde.
+# Brug af node-red-template
+1. Klik "use this template -> create a new repository"
+2. Udfyld skærmbillede med information om den nye service
+3. Åbn dit nye git projekt
 
 # 'Mit' Node-RED projekt
 Nedenstående relaterer sig til et nyt Node-RED projekt der er baseret på denne template.
@@ -37,7 +32,7 @@ Dette gøres ved at klikke i node-red menuen
 
 Herefter erstattes indholdet i 'flows.json' med det kopierede indhold.
 
-### Tilføjelse af Platte / Dependencies
+### Tilføjelse af Palette / Dependencies
 Er der behov for at tilføje udvidelser ifm. det udviklede flow, kan disse installeres dynamisk via Node-RED menuen
 * menu -> Manage palette.
 
@@ -56,11 +51,11 @@ Input til metrikken kommer fra en function-node der beskriver metrikken.
 <br>
 ![metrik.png](images/metrik.png)
 
-### Anbefalede minium metrikker
+### Anbefalede minimums metrikker
 For at servicen automatisk bliver tilføjet til Grafana dashboardet *Service*, skal følgende metrikker som minium være udstillede.   
 
 - Up *- Indeholder værdien 1 når node-red servicen kører*
-- StatusCode *- Indeholder seneste HTTP status kode fra det kalde API*
+- StatusCode *- Indeholder seneste HTTP status kode fra API-kald*
 - Time *- Indeholder tidspunket for seneste kørsel*
 
 Følgende er et eksempel på hvordan metrikkerne kan opsættes. 
