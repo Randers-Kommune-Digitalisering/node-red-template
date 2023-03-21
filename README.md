@@ -9,10 +9,11 @@ Projekt indeholder en tom Node-RED og paletterne
 2. Udfyld skærmbillede med information om den nye service
 3. Åbn dit nye git projekt
 
-# 'Mit' Node-RED projekt
+# NytNode-RED projekt
 Nedenstående relaterer sig til et nyt Node-RED projekt der er baseret på denne template.
 
-## Lokalt udviklingsmiljø
+## Udvikling i et Codesspace:
+
 > docker-compose up --build
 
 Starter et lokalt docker-compose miljø, der bygger og starter Node-RED og en mariadb.
