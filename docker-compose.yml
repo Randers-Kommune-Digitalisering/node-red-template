@@ -12,7 +12,7 @@ services:
       DB_HOST: db
       DB_PORT: 3306
       DB_DATABASE: demo
-      GIT_BRANCH: $(GIT_BRANCH:~(git branch | sed -n -e 's/^\* \(.*\)/\1/p'))
+      GIT_BRANCH: $$(GIT_BRANCH:~(git branch | sed -n -e 's/^\* \(.*\)/\1/p'))
 
       # Miljøvariablen FLOWS fortæller Node-RED IDEet hvilket flow.json den skal åbne og gemme ændringer i ved deploy.
       FLOWS: "/data/flows.json"
