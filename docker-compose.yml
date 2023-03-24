@@ -7,7 +7,7 @@ services:
     ports:
       - "1880:1880"
     environment:
-      GIT_BRANCH: $$(GIT_BRANCH:~(git branch | sed -n -e 's/^\* \(.*\)/\1/p'))
+      GIT_BRANCH: $$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
       DB_USER: root
       DB_PASS: pass
       DB_HOST: db
