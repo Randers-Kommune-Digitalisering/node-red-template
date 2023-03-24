@@ -2,12 +2,14 @@ version: "3.9"
 services:
   node-red:
     build: node-red
-    command: /bin/sh -c EXPORT GIT_BRANCH="$$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')"
+    # command: /bin/sh -c EXPORT GIT_BRANCH="$$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')"
     networks:
       - node_red
     ports:
       - "1880:1880"
     environment:
+      - COMPOSE_PROJECT_NAME
+      command: echo "I'm running ${COMPOSE_PROJECT_NAME}"
       GIT_BRANCH: ${GIT_BRANCH}
       DB_USER: root
       DB_PASS: pass
