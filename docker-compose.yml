@@ -3,7 +3,6 @@ services:
   node-red:
     build: node-red
     #set branch variable
-    command: 
     command:
       - /bin/bash
       - -c
