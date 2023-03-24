@@ -371,7 +371,7 @@ module.exports = {
          * for all available options.
          */
         editorTheme: {
-            header: {title: "process.env.pwd"},
+            header: {title: process.env.pwd},
             /** The following property can be used to set a custom theme for the editor.
              * See https://github.com/node-red-contrib-themes/theme-collection for
              * a collection of themes to chose from.
