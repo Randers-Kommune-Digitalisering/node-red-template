@@ -3,7 +3,12 @@ services:
   node-red:
     build: node-red
     #set branch variable
-    command: EXPORT BRANCH="$$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')"
+    command: 
+    command:
+      - /bin/bash
+      - -c
+      - |
+      EXPORT BRANCH="$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')"
     networks:
       - node_red
     ports:
