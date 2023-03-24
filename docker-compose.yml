@@ -2,12 +2,6 @@ version: "3.9"
 services:
   node-red:
     build: node-red
-    #set branch variable
-    command:
-      - /bin/bash
-      - -c
-      - |
-      EXPORT BRANCH="$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')"
     networks:
       - node_red
     ports:
@@ -18,7 +12,8 @@ services:
       DB_HOST: db
       DB_PORT: 3306
       DB_DATABASE: demo
-      
+      GIT_BRANCH: $(GIT_BRANCH:~(git branch | sed -n -e 's/^\* \(.*\)/\1/p'))
+
       # Miljøvariablen FLOWS fortæller Node-RED IDEet hvilket flow.json den skal åbne og gemme ændringer i ved deploy.
       FLOWS: "/data/flows.json"
       
