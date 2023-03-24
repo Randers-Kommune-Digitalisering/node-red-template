@@ -8,17 +8,15 @@ services:
     ports:
       - "1880:1880"
     environment:
-      - COMPOSE_PROJECT_NAME
-      command: echo "I'm running ${COMPOSE_PROJECT_NAME}"
-      #GIT_BRANCH: ${GIT_BRANCH}
-      #DB_USER: root
-      #DB_PASS: pass
-      #DB_HOST: db
-      #DB_PORT: 3306
-      #DB_DATABASE: demo
+      GIT_BRANCH: ${GIT_BRANCH}
+      DB_USER: root
+      DB_PASS: pass
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: demo
       
       # Miljøvariablen FLOWS fortæller Node-RED IDEet hvilket flow.json den skal åbne og gemme ændringer i ved deploy.
-      #FLOWS: "/data/flows.json"
+      FLOWS: "/data/flows.json"
       
       # Bind mount fra codespace til den kørende containers /data.
       # Gør det muligt at deploye flowkode direkte fra IDE og bruge git til at comitte ændringerne til repo.
