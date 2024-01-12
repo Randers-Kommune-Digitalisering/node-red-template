@@ -1,18 +1,7 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-
-import { ref } from 'vue';
-const status = ref(null);
-
-fetch('/status')
-    .then(response => response = response.json())
-    .then(data => status.value = data);
-
-fetch('/api/vuetest')
-    .then(response => response = response.json())
-    .then(value => console.log(value));
-
+import Status from './components/Status.vue'
 </script>
 
 <template>
@@ -21,17 +10,15 @@ fetch('/api/vuetest')
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
+      <Status />
     </div>
+
   </header>
 
   <main>
     <TheWelcome />
-    <div class="status">
-      <h2>Status:</h2>
-      <h3 v-if="status">{{status.status}}</h3>
-      <h3 v-else="status">Not running</h3>
-    </div>
   </main>
+
 </template>
 
 <style scoped>
