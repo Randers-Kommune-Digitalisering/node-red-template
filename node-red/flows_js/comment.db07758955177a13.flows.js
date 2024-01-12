@@ -1,11 +1,11 @@
 const Node = {
-  "id": "013cab8d59f75d48",
+  "id": "db07758955177a13",
   "type": "comment",
   "z": "971a7ae6df987a48",
-  "name": "Time to start coding!",
+  "name": "Demo endpoint for Vue",
   "info": "",
-  "x": 150,
-  "y": 60,
+  "x": 160,
+  "y": 80,
   "wires": []
 }
 

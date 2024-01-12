@@ -3,12 +3,12 @@ const Node = {
   "type": "http in",
   "z": "971a7ae6df987a48",
   "name": "",
-  "url": "/vuetest",
+  "url": "/status",
   "method": "get",
   "upload": false,
   "swaggerDoc": "",
   "x": 130,
-  "y": 200,
+  "y": 120,
   "wires": [
     [
       "8e82ccceb36f3539"
