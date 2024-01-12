@@ -8,7 +8,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/out/': 'http://localhost:1880/',
-      '/in/': 'http://localhost:1880/'
+      '/in/': 'http://localhost:1880/',
+      '/api/': {
+        target: 'http://localhost:1880/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      }
     }
   },
   plugins: [

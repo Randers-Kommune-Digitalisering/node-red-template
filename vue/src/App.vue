@@ -8,6 +8,11 @@ const status = ref(null);
 fetch('/status')
     .then(response => response = response.json())
     .then(data => status.value = data);
+
+fetch('/api/vuetest')
+    .then(response => response = response.json())
+    .then(value => console.log(value));
+
 </script>
 
 <template>
